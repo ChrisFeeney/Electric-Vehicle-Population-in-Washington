@@ -61,7 +61,7 @@ ORDER BY
     amount_per_city DESC;
 --Seattle has the most, followed by Bellevue, Redmond, Bothell, and Sammamish.
 /*While Seattle and Bellevue having the most amount of EVs makes sense given they are some of the most populated cities,
-Redmond, Bothell, and Sammamish are the 17th to 26th most populace cities. */
+Redmond, Bothell, and Sammamish are the 17th, 21st and 26th most populace cities. */
 
 --Looking at which city has the most plug in hybrids
 SELECT 
@@ -120,8 +120,7 @@ WHERE
 GROUP BY
     model
 ORDER BY
-    COUNT(model) DESC
-;
+    COUNT(model) DESC;
 --Model Y and Model 3 are far and away the most popular model of ev with around 35,000 each, followed by Leaf at 13366
 --Four of the top six most popular models are tesla's; showcasing their domincance over the ev market in washington
 
