@@ -24,7 +24,7 @@ In this exploration of the Washington EV market I used:
 
 - **PostgreSQL:** My database management system of choice that is ideal to hold the EV dataset.
 
-- **PowerBI:** The visualization software I chose to create graphs and dashboards of the data. [PowerBI Dashboard]()
+- **PowerBI:** The visualization software I chose to create graphs and dashboards of the data. [PowerBI Dashboard](wash_ev_sales_folder/assets/wash_ev_sales_dashboard.pdf)
 
 - **Git & GitHub:** Which allow me to share my SQL scripts and analysis of the data.
 
