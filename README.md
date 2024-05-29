@@ -112,6 +112,7 @@ Tesla's were the most popular EV by a clear margin. Their 79,659 occurences is n
 Nissian was the only maker appart from Tesla to reach the ten thousands, which is even more impressive considering that over 95% of their cap is in one car the Leaf. 
 
 ![Most Popular EVs](wash_ev_sales_folder/assets/most_popular_ev.png)
+
 *This a bar graph showing the most popular EV models in the State of Washington. This graph was created in PowerBI.*
 ## 3. Most Popular Makes Per Year
 We saw which manufacture was the most popular overall, but how about per model year. To create this query, two CTEs were used back to back in order to create a rank partitioned by year. All in the goal of returning a ranking of amount of cars per brand per year.
@@ -203,6 +204,7 @@ Nearly 70% of all the EVs in the State have a range of over 200 miles. With near
 One surprising development is that the second most populace bin is within the 50-99 miles. To learn why this may be is outside of the scope of this data, but it can be inferred that this is due to the Nissian Leaf being the third most popular EV and it being one of the oldest. Leading to a smaller battery.
 
 ![Cars Per Range](wash_ev_sales_folder/assets/cars_per_range.png)
+
 *This is a donut chart showcasing the distribution of EVs when it comes to range. This chart was created in PowerBI.*
 
 # What I Learned
