@@ -1,12 +1,12 @@
 # Washington Electric Vehicles
 
 ## Introduction
-Look into electric vehicle data in the State of Washington! This project explores the EV ownership, popular makes and models, range, and more. [Data Folder](/wash_ev_sales_folder/)
+Look into electric vehicle data in the State of Washington! This project explores EV ownership, popular makes and models, range, and more. [Data Folder](/wash_ev_sales_folder/)
 
 SQL Queries Here:
 
 ## Background
-Pushed forward by a curiosity to understand the electric vehicle market, along with an upcoming move to Seattle createed this opportunity to look closer at electric vehicle sales in the State of Washington. 
+Pushed forward by a curiosity to understand the electric vehicle market, along with an upcoming move to Seattle created this opportunity to look closer at electric vehicle sales in the State of Washington. 
 
 Data is from a [Kaggle](https://www.kaggle.com/datasets/utkarshx27/electric-vehicle-population-data) data set.
 
@@ -20,9 +20,11 @@ What about Seattle?
 # Tools I Used
 In this exploration of the Washington EV market I used:
 
-- **SQL:** How I created queries to analyze the dataset.
+- **SQL:** How I created the queries to analyze the dataset.
 
 - **PostgreSQL:** My database management system of choice that is ideal to hold the EV dataset.
+
+- **PowerBI:** The visualization software I chose to create graphs and dashboards of the data. [PowerBI Dashboard]()
 
 - **Git & GitHub:** Which allow me to share my SQL scripts and analysis of the data.
 
@@ -32,7 +34,7 @@ Every query was scripted inorder to investigate a specific question surrounding 
 Here is my approach:
 
 ## 1.  EV Ownership Numbers
-In order to find out which cities had the most amount of EVs and Plug-In Hybrids respectively, I wrote two queries. These queries return the amount of times a particular city was included within the table where the type of car was either an EV or Plug-In Hybrid.
+In order to find which cities had the highest number of EVs and Plug-In Hybrids respectively, I wrote two queries. These queries returned a count of instances where the type of car was an EV or Plug-In Hybrid. 
 
 ```sql
 SELECT 
@@ -46,7 +48,9 @@ GROUP BY
     city
 ORDER BY
     amount_per_city DESC;
+```
 
+```sql
 SELECT 
     city,
     COUNT(city) AS amount_per_city
@@ -62,10 +66,14 @@ ORDER BY
 Breakdown of the results:
 
 - **Does Not Follow Population:**
-The city with the most EVs and Plug-In Hybrids is unsurprisingly Seattle. This is to be expected as it is the most populated city in the State by a wide margin. However, after Bellevue in the second spot, Redmond, Bothell, and Smmamish were the 3,4, and 5 placed cities for amount of EVs. This is particualry interesting as those cities are the 17th, 21st, and 26th most populated cities. Plug-In Hybrids followed much of the same story as Tukwila the 72nd most populated city came in second place.
+The city with the most EVs and Plug-In Hybrids is unsurprisingly Seattle. This is to be expected as it is the most populated city in the State by a wide margin. However, after Bellevue in the second spot, Redmond, Bothell, and Sammamish were the 3,4, and 5 placed cities for amount of EVs. This is particualry interesting as those cities are the 17th, 21st, and 26th most populated cities. Plug-In Hybrids followed much of the same story as Tukwila the 72nd most populated city came in second place.
+
+![EVS Per City](wash_ev_sales_folder\assets\Evs_per_city.png)
+
+*This is a screenshot of the resulting table of EVs per city*
 
 ## 2. Makes and Models
-Diving deeper, I looked at which EV manufacurer and individual model of EV was the most widespread and popular. In order to parse this data, two queries similar to the ones before were written specifically looking at EVs only.
+Diving deeper, I looked at which EV manufacturer and individual model of EV was the most widespread and popular. In order to parse this data, two queries similar to the ones before were written specifically looking at EVs only.
 
 ```sql
 SELECT 
@@ -80,7 +88,9 @@ GROUP BY
 ORDER BY
     amount_of_evs DESC
 LIMIT 10;
+```
 
+```sql
 SELECT 
     model,
     COUNT(model) 
@@ -101,6 +111,8 @@ Tesla's were the most popular EV by a clear margin. Their 79,659 occurences is n
 - **Nissian:**
 Nissian was the only maker appart from Tesla to reach the ten thousands, which is even more impressive considering that over 95% of their cap is in one car the Leaf. 
 
+![Most Popular EVs](wash_ev_sales_folder\assets\most_popular_ev.png)
+*This a bar graph showing the most popular EV models in the State of Washington. This graph was created in PowerBI.*
 ## 3. Most Popular Makes Per Year
 We saw which manufacture was the most popular overall, but how about per model year. To create this query, two CTEs were used back to back in order to create a rank partitioned by year. All in the goal of returning a ranking of amount of cars per brand per year.
 
@@ -139,12 +151,15 @@ ORDER BY
 Breakdown of the results:
 
 - **Same Story:** 
-We see that as expected Tesla has the most popular model's from 2016-2023 as well as 2014. This makes sense as they are the most popular manufacture overall. 
+We see that as expected Tesla has the most popular model's from 2016-2023 as well as 2014. This makes sense as they are the most popular manufacturer overall. 
 
-*Important to note that this query only looks are model year and not purchase year*
+*Important to note that this query only looks at model year and not purchase year*
 
 - **Anomolies:** 
-In the years where a Tesla model wasn't the most popular, Nissian took that spot. This follows the pattern esstablished before where Nissian was second in all categories following Tesla. It is worth noting that Nissian hasn't been in the top 5 since 2022. However, in 2024 neither Tesla nor Nissian was in the top spot, it was instead BMW. This is likely due to only data from the beginning of the year being available, but it is an intereting turn of events.
+In the years where a Tesla model wasn't the most popular, Nissian took that spot. This follows the pattern esstablished before where Nissian was second in all categories following Tesla. It is worth noting that Nissian hasn't been in the top 5 since 2022. However, in 2024 neither Tesla nor Nissian was in the top spot, it was instead BMW. This is likely due to only data from the beginning of the year being available, but it is an intereting revelation to keep an eye on.
+
+![EV Makes Year](wash_ev_sales_folder\assets\EV_Makes.png)
+*This a screenshot of the most popular EV makes per year from 2022-2024.*
 
 ## 4. Distribution of EV Range
 Perhaps the most important aspect of an electric vehicle is the battery and range it has. This query was created with the purpose of looking at how many EVs fit within different buckets of range using a case statement. 
@@ -186,11 +201,14 @@ Nearly 70% of all the EVs in the State have a range of over 200 miles. With near
 - **Less Than 100:** 
 One surprising development is that the second most populace bin is within the 50-99 miles. To learn why this may be is outside of the scope of this data, but it can be inferred that this is due to the Nissian Leaf being the third most popular EV and it being one of the oldest. Leading to a smaller battery.
 
+![Cars Per Range](wash_ev_sales_folder\assets\cars_per_range.png)
+*This is a donut chart showcasing the distribution of EVs when it comes to range. This chart was created in PowerBI.*
+
 # What I Learned
 Throughout this exploration of the EV data I was able to progress my SQL quering skills:
 
 - **Window Functions:** 
-I was able to implement very functional and useful window functions within SQL. This included row numbers, dense ranks, partitions, etc. This were functions that up to this point I did not see a big use case but now I am much more proficient. 
+I was able to implement very functional and useful window functions within SQL. This included row numbers, dense ranks, partitions, etc. These were functions that up to this point I did not see a big use case but now I am much more proficient. 
 
 - **Data Aggregation:**
 My familiarity and command over aggrigation functions such as Group By, Order By, Where have only gotten stronger, and I feel very comfotable using them now.
@@ -204,13 +222,13 @@ I have gotten a taste of getting questions needing to be solved, finding the dat
 General analysis:
 
 - **Tesla:**
-Tesla was the most popular EV maker as well as having four of the six most popular models. They are essentially half of the entire EV market in Washington, and this data would look completely different without them. They also have the most car model per year for seven straight years from 2016-2023.
+Tesla was the most popular EV maker as well as having four of the six most popular models. They are essentially half of the entire EV market in Washington, and this data would look completely different without them. They also have the most popular car model per year for seven straight years from 2016-2023.
 
 - **Population Not Important ?:**
 After Seattle, the spread of both EVs and Plug-In Hybrids did not follow the population trend. Some of the most populated cities had low amounts of ownership, where as smaller cities such as Bothell for EVs and Tukwilla for Plug-Ins had some of the highest ownership.
 
 - **Range:**
-As time goes on and battery technology improves, we see that adoption of EVs has gotten comfortable with a range of 200-249 miles a charge. It remains to be seen if this increase over time or this is the sweet spot.
+As time goes on and battery technology improves, we see that adoption of EVs has gotten comfortable with a range of 200-249 miles a charge. It remains to be seen if this will increase over time or this is the sweet spot.
 
 ## Closing Thoughts
 
