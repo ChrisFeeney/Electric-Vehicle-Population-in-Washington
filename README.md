@@ -159,6 +159,7 @@ We see that as expected Tesla has the most popular model's from 2016-2023 as wel
 In the years where a Tesla model wasn't the most popular, Nissian took that spot. This follows the pattern esstablished before where Nissian was second in all categories following Tesla. It is worth noting that Nissian hasn't been in the top 5 since 2022. However, in 2024 neither Tesla nor Nissian was in the top spot, it was instead BMW. This is likely due to only data from the beginning of the year being available, but it is an intereting revelation to keep an eye on.
 
 ![EV Makes Year](wash_ev_sales_folder/assets/EV_Makes.png)
+
 *This a screenshot of the most popular EV makes per year from 2022-2024.*
 
 ## 4. Distribution of EV Range
