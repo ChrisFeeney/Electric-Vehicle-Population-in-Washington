@@ -68,7 +68,7 @@ Breakdown of the results:
 - **Does Not Follow Population:**
 The city with the most EVs and Plug-In Hybrids is unsurprisingly Seattle. This is to be expected as it is the most populated city in the State by a wide margin. However, after Bellevue in the second spot, Redmond, Bothell, and Sammamish were the 3,4, and 5 placed cities for amount of EVs. This is particualry interesting as those cities are the 17th, 21st, and 26th most populated cities. Plug-In Hybrids followed much of the same story as Tukwila the 72nd most populated city came in second place.
 
-![EVS Per City](wash_ev_sales_folder\assets\Evs_per_city.png)
+![EVS Per City](wash_ev_sales_folder/assets/Evs_per_city.png)
 
 *This is a screenshot of the resulting table of EVs per city*
 
@@ -111,7 +111,7 @@ Tesla's were the most popular EV by a clear margin. Their 79,659 occurences is n
 - **Nissian:**
 Nissian was the only maker appart from Tesla to reach the ten thousands, which is even more impressive considering that over 95% of their cap is in one car the Leaf. 
 
-![Most Popular EVs](wash_ev_sales_folder\assets\most_popular_ev.png)
+![Most Popular EVs](wash_ev_sales_folder/assets/most_popular_ev.png)
 *This a bar graph showing the most popular EV models in the State of Washington. This graph was created in PowerBI.*
 ## 3. Most Popular Makes Per Year
 We saw which manufacture was the most popular overall, but how about per model year. To create this query, two CTEs were used back to back in order to create a rank partitioned by year. All in the goal of returning a ranking of amount of cars per brand per year.
@@ -158,7 +158,7 @@ We see that as expected Tesla has the most popular model's from 2016-2023 as wel
 - **Anomolies:** 
 In the years where a Tesla model wasn't the most popular, Nissian took that spot. This follows the pattern esstablished before where Nissian was second in all categories following Tesla. It is worth noting that Nissian hasn't been in the top 5 since 2022. However, in 2024 neither Tesla nor Nissian was in the top spot, it was instead BMW. This is likely due to only data from the beginning of the year being available, but it is an intereting revelation to keep an eye on.
 
-![EV Makes Year](wash_ev_sales_folder\assets\EV_Makes.png)
+![EV Makes Year](wash_ev_sales_folder/assets/EV_Makes.png)
 *This a screenshot of the most popular EV makes per year from 2022-2024.*
 
 ## 4. Distribution of EV Range
@@ -201,7 +201,7 @@ Nearly 70% of all the EVs in the State have a range of over 200 miles. With near
 - **Less Than 100:** 
 One surprising development is that the second most populace bin is within the 50-99 miles. To learn why this may be is outside of the scope of this data, but it can be inferred that this is due to the Nissian Leaf being the third most popular EV and it being one of the oldest. Leading to a smaller battery.
 
-![Cars Per Range](wash_ev_sales_folder\assets\cars_per_range.png)
+![Cars Per Range](wash_ev_sales_folder/assets/cars_per_range.png)
 *This is a donut chart showcasing the distribution of EVs when it comes to range. This chart was created in PowerBI.*
 
 # What I Learned
